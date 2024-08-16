@@ -22,3 +22,4 @@ for (let option of options) {
   //Añadiendo el elemento li dentro de ul
   navSelector.appendChild(listItem);
 }
+
