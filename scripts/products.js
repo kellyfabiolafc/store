@@ -30,7 +30,35 @@ for (let producto in producto1) {
 // images (imágenes) por ahora asigna []
 
 // y onsale (en oferta): debe ser un booleano para definir si está o no está en oferta.
+// En products.js agrega al constructor de productos:
+// Define un array de colores
+const colors = [
+  ["Space Gray"], // Macbook Pro 15'4
+  ["White"], // AirPods Pro
+  ["Rose Gold"], // Smartwatch
+  ["Pink"], // iPhone 13
+  ["Space Gray"], // iPad Air
+  ["Space Gray"], // iPad Pro 12.9
+];
 
+
+const images = [
+  "../assets/macbook_pro_15_4.jpg",
+  "../assets/airpods_pro.jpg",
+  "../assets/smartwatch.jpg",
+  "../assets/iphone_13.jpg",
+  "../assets/ipad_air.jpg",
+  "../assets/ipad_pro_12_9.jpg",
+];
+
+const imagePaths = {
+  "macbook": images[0],
+  "airpods": images[1],
+  "smartwatch": images[2],
+  "iphone_13": images[3],
+  "ipad_air": images[4],
+  "ipad_12.jpg": images[5],
+};
 class Product {
   #supplier;
 
@@ -74,17 +102,40 @@ class Product {
 // 3. Define la variable product1 e implementa el constructor new para crear una instancia de Product vacía. A modo de ejemplo:
 
 // const product1 = new Product();
-const product1 = new Product()
+const product1 = new Product(
+  1,
+  "Macbook Pro 15'4",
+  750000,
+  10,
+  [imagePaths["macbook"]],
+  true,
+  "Supplier Name",
+  ["Space Gray"],
+  "Incluye impuesto País y percepción AFIP"
+);
 // 4. Define la variable product2 para crear una instancia de Product con las propiedades id, title y price.
-const product2 = new Product("2", "Producto A ", 29.99);
+const product2 = new Product(
+  2,
+  "AirPods Pro",
+  750000,
+  15,
+ [imagePaths["airpods"]],
+  true,
+  "Supplier Name",
+  ["White"],
+  "Incluye impuesto País y percepción AFIP"
+);
 // 5. Define la variable product3 para crear una instancia de Product con todas las propiedades que requiere la clase.
 const product3 = new Product(
-  "3",
-  "Producto B",
-  49.99,
-  100,
-  ["img1.jpg", "img2.jpg"],
-  true
+  3,
+  "Smartwatch",
+  750000,
+  20,
+  [imagePaths["smartwatch"]],
+  true,
+  "Supplier Name",
+  ["Rose Gold"],
+  "Incluye impuesto País y percepción AFIP"
 );
 // 6. Programa la impresión en consola de product1, product2 y product3.
 console.log(`Producto vacio: ${product1}.
@@ -113,15 +164,16 @@ console.log(`Onsale: ${product3.onsale}`);
 
 // Crear una instancia de Product
 const product4 = new Product(
-  "4",
-  "Producto C",
-  59.99,
-  50,
-  ["img1.jpg", "img2.jpg"],
+  4,
+  "iPhone 13",
+  750000,
+  12,
+  [imagePaths["iphone_13"]],
   true,
-  "Tech Supplier Inc."
+  "Supplier Name",
+  ["Pink"],
+  "Incluye impuesto País y percepción AFIP"
 );
-
 // Modificar el proveedor usando el setter
 product4.supplier = "Tech Supplier";
 
@@ -144,13 +196,15 @@ console.log(resultado);
 // }
 // 3. Define la variable product5 para crear una instancia de Product con todas las propiedades que requiere la clase. Debe tener 12 unidades de stock.
 const product5 = new Product(
-  "5", // id
-  "Producto D", // title
-  100, // price
-  12, // stock
-  ["image1.jpg", "image2.jpg"], // images
-  true, // onsale
-  "Proveedor XYZ" // supplier
+  5,
+  "iPad Air",
+  750000,
+  8,
+ [imagePaths["ipad_air"]],
+  true,
+  "Supplier Name",
+  ["Space Gray"],
+  "Incluye impuesto País y percepción AFIP"
 );
 
 // 4. Ejecuta el método sellUnits para vender 10 unidades y luego 5 unidades.
@@ -177,7 +231,7 @@ console.log(" ✏️ Actividad: Listado de productos en la tienda");
 
 // Define la variable products como un array con los [ ]. Dentro de array listar cada uno de los productos definidos. A modo de ejemplo:
 
-const products = [product1, product2, product3, product4];
+export const products = [product1, product2, product3, product4];
 // Programa la impresión en consola del array completo.
 for (let i = 0; i < products.length; i++) {
   console.log(products[i]);
@@ -197,13 +251,15 @@ console.log("✏️ Actividad: Ampliando la lista de productos");
 
 // En products.js define las variables product5 y product6 para crear dos instancias de Product con todas las propiedades que requiere la clase.
 const product6 = new Product(
-  "6", // id
-  "Producto E", // title
-  200, // price
-  2, // stock
-  ["image1.jpg", "image2.jpg"], // images
-  true, // onsale
-  "Proveedor XY" // supplier
+  6,
+  "iPad Pro 12.9",
+  750000,
+  5,
+  [imagePaths["ipad_12"]],
+  true,
+  "Supplier Name",
+  ["Space Gray"],
+  "Incluye impuesto País y percepción AFIP"
 );
 // Agrega product5 al inicio del array utilizando el método unshift. A modo de ejemplo:
 console.log(
@@ -214,7 +270,9 @@ for (let q = 0; q < products.length; q++) {
   console.log(products[q]);
 }
 // Agrega product6 al final del array utilizando el método push. A modo de ejemplo:
-console.log("Agregando product6 al final del array utilizando el método unshift.");
+console.log(
+  "Agregando product6 al final del array utilizando el método unshift."
+);
 products.push(product6);
 for (let q = 0; q < products.length; q++) {
   console.log(products[q]);
@@ -249,9 +307,7 @@ console.log("✏️ Actividad: Enriquecimiento de información de productos");
 
 // Desde Visual Studio Code, abre la carpeta store
 
-// En products.js agrega al constructor de productos:
-// Define un array de colores
-const colors = ["Rojo", "Azul", "Negro", "Blanco", "Beige"];
+
 
 // Colors: para definir un array de colores del producto.
 
