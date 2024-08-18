@@ -51,11 +51,41 @@ function createCard(product) {
 // Modifica cada dato “estático” de la tarjeta por la correspondiente propiedad del objeto product. Recuerda que en el template string se “invocan” variables de js con ${ }. A modo de ejemplo:
 
 
-const productsSelector = document.getElementById("products");
+// const productsSelector = document.getElementById("products");
 
-let productsTemplate = "";
-for (const product of products) {
-    productsTemplate += createCard(product);
+// let productsTemplate = "";
+// for (const product of products) {
+//     productsTemplate += createCard(product);
+// }
+
+// productsSelector.innerHTML = productsTemplate;
+
+// En esta actividad vamos a crear una función que “encapsule” todo lo desarrollado en la actividad anterior. Para este ejercicio vas a seguir los siguientes pasos:
+
+// Desde Visual Studio Code, abre la carpeta store
+
+// Abre productCards.html y define una función printCards que reciba como parámetro un array de productos arrayOfProducts y el id del selector HTML idSelector y que realice las siguientes instrucciones:
+
+// Define una variable productsTemplate para concatenar todas las tarjetas de productos
+
+// Itera con for of para que cada vuelta “cargue” una tarjeta de producto 
+
+// Selecciona con getElementById la etiqueta idSelector
+
+// Imprime con innerHTML el contenido guardado en la variable productsTemplate
+
+export function printCards(arrayOfProducts, idSelector) {
+  let productsTemplate = "";
+  for (const element of arrayOfProducts) {
+    productsTemplate += createCard(element);
+  }
+  const productsSelector = document.getElementById(idSelector);
+  productsSelector.innerHTML = productsTemplate;
 }
+// 3. Luego es necesario invocar a la función pasando el array de productos y el id del selector.  A modo de ejemplo:
 
-productsSelector.innerHTML = productsTemplate;
+// printCards(products, "products");
+// 4. Abre con live server el archivo index.html y observa las tarjetas de producto.
+
+// 5. Programa y verifica la vista la cantidad de veces que sea necesario para que las tarjetas se rendericen y funcionen correctamente.
+

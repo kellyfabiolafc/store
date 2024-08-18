@@ -1,5 +1,5 @@
 // 4. En products.js, define la variable producto1 y asignale un objeto con { } y las propiedades nombre, stock y precio. A modo de ejemplo:
-
+import { printCards } from "./productCards.js";
 const producto1 = {
   nombre: "celular",
   precio: 100000,
@@ -320,3 +320,4 @@ console.log("✏️ Actividad: Enriquecimiento de información de productos");
 // Agrega las impresiones que creas convenientes para observar los cambios en la lista de productos.
 
 // Abre con live server el archivo index.html y verifica las salidas programadas.
+printCards(products, "products");
