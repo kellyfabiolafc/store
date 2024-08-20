@@ -31,7 +31,7 @@ import { products } from './products.js';
 
 function createCard(product) {
     return ` <article class="product-card">
-        <a href="./details.html">
+     <a href="./details.html?id=${product.id}">
             <img class="product-img" src="${product.images[0]}" alt="${product.title}" />
             <div class="product-info">
                 <span class="product-title">${product.title}</span>
@@ -89,3 +89,14 @@ export function printCards(arrayOfProducts, idSelector) {
 
 // 5. Programa y verifica la vista la cantidad de veces que sea necesario para que las tarjetas se rendericen y funcionen correctamente.
 
+
+console.log(" Links dinámicos")
+console,log ("✏️ Actividad: Linkear cada tarjeta de producto con detail.html");
+// Para este ejercicio tienes que seguir los siguientes pasos:
+
+// Desde Visual Studio Code, abre la carpeta store y luego el archivo productCards.js
+
+// Modifica el template que devuelve la función createCard, debe tener una consulta o query dinámica con el id del producto. No olvidar los signos ? (pregunta) ni el = (igual). A modo de ejemplo:
+
+// <a class="product-card" href="./details.html?id=${product.id}">
+// Abre con live server el archivo index.html y prueba el correcto direccionamiento de los links.
