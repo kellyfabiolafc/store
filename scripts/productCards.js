@@ -82,16 +82,19 @@ export function printCards(arrayOfProducts, idSelector) {
   const productsSelector = document.getElementById(idSelector);
   productsSelector.innerHTML = productsTemplate;
 }
+
+
+
 // 3. Luego es necesario invocar a la función pasando el array de productos y el id del selector.  A modo de ejemplo:
 
-// printCards(products, "products");
+ printCards(products, "products");
 // 4. Abre con live server el archivo index.html y observa las tarjetas de producto.
 
 // 5. Programa y verifica la vista la cantidad de veces que sea necesario para que las tarjetas se rendericen y funcionen correctamente.
 
 
 console.log(" Links dinámicos")
-console,log ("✏️ Actividad: Linkear cada tarjeta de producto con detail.html");
+console.log ("✏️ Actividad: Linkear cada tarjeta de producto con detail.html");
 // Para este ejercicio tienes que seguir los siguientes pasos:
 
 // Desde Visual Studio Code, abre la carpeta store y luego el archivo productCards.js
@@ -100,3 +103,17 @@ console,log ("✏️ Actividad: Linkear cada tarjeta de producto con detail.html
 
 // <a class="product-card" href="./details.html?id=${product.id}">
 // Abre con live server el archivo index.html y prueba el correcto direccionamiento de los links.
+
+console.log("✏️ Actividad: Capturar el id del producto");
+// Para este ejercicio tienes que seguir los siguientes pasos:
+
+// Desde Visual Studio Code, abre la carpeta store y luego el archivo details.html. 
+
+// Quita el input de búsqueda de la barra de navegación.
+
+// Conecta el script layout.js y modifica la barra de navegación y el pie de página para que se generen dinámicamente. 
+
+// Conecta el script products.js para tener el array de productos disponible para la vista.
+
+// Crea el archivo productDetail.js en la carpeta scripts y conectalo con la vista product.html
+
