@@ -12,7 +12,7 @@ alert(id);
 function printDetails(id,products) {
     console.log('ID:', id);
     console.log('Products:', products);
-   const product = products.find((each) => each.id === id);
+   const product = products.find((each) => each.id == id);
    console.log(product);
    const detailsTemplate = `
      <div class="columns-container">
