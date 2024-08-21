@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Tianda Mia</title>
     <!-- ✏️ Actividad: Aplicando estilos a nuestra información -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -39,15 +40,14 @@
           </div>
         </div>
         <div class="nav">
-          <ul id="nav-list">
-          </ul>
+          <ul id="nav-list"></ul>
         </div>
       </div>
     </header>
     <!-- Estilos del cuerpo y en particular de la tarjeta del producto  -->
     <main>
-      <div class="container">
-        <div class="columns-container">
+      <div class="container" id="details">
+        <!-- <div class="columns-container">
           <div class="product-images">
             <div class="thumbnails">
               <div class="thumbnail-container">
@@ -134,13 +134,13 @@
             </div>
           </div>
         </div>
-
+      -->
         <!-- Contenedor de seccion ofertas -->
 
-        <div class="sales-block">
-          <h2>Ofertas de la semana</h2>
-          <!-- Contenedor de productos en ofertas -->
-          <div class="offers">
+        <!-- <div class="sales-block">
+          <h2>Ofertas de la semana</h2> -->
+        <!-- Contenedor de productos en ofertas -->
+        <!-- <div class="offers">
             <article class="product-card">
               <img
                 class="product-img"
@@ -198,23 +198,22 @@
               </div>
             </article>
           </div>
-        </div>
+        </div> -->
       </div>
     </main>
 
     <!-- Seccion del footer -->
 
-    <footer >
+    <footer>
       <div class="container">
-        <div class="columns-container" id="footer">
-        </div>
+        <div class="columns-container" id="footer"></div>
         <div class="copyright">Curso de HTML + CSS 2023</div>
       </div>
     </footer>
-  
-    
+
     <script src="index.js"></script>
-  <script src="./scripts/layout.js"></script>
-  <script type="module" src="./scripts/products.js"></script>
+    <script type="module" src="./scripts/productDetail.js"></script>
+    <script src="./scripts/layout.js"></script>
+    <script type="module" src="./scripts/products.js"></script>
   </body>
 </html>
