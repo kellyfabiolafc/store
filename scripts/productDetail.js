@@ -29,7 +29,8 @@ function printDetails(id,products) {
 
             </div>
             <img
-              src="${product.images[0]}"
+            src="${product.images[0]}"
+               id="bigImg"
               alt="Producto"
               id="product-image"
               class="main-image"
@@ -103,6 +104,12 @@ function printDetails(id,products) {
    } else {
        console.error('Element with id "details" not found');
    }
+   const thumbnails = document.querySelectorAll(".thumbnail");
+   thumbnails.forEach(thumbnail => {
+    thumbnail.onclick = changeMini; // Asigna la función changeMini a cada miniatura
+  });
+
+
 }
 printDetails(id,products);
 // Abre con live server el archivo index.html el archivo index.html, prueba el direccionamiento de los links y verifica la correcta renderización de la vista de detalle.
@@ -159,4 +166,55 @@ printDetails(id,products);
 //    detailsSelector.innerHTML = detailsTemplate;
 // }
 // printDetails(id)
+// Programa y verifica la vista la cantidad de veces que sea necesario para que la vista se renderice y funcione correctamente.
+console.log("Evento de click") ;
+//  ✏️ Actividad: Programar las miniaturas de la vista de detalle
+// Para este ejercicio tienes que:
+
+// Desde Visual Studio Code, abre la carpeta store y luego el archivo productDetail.js
+
+// Modifica la función printDetails para que cada imagen de la miniatura tenga asignado un evento de click “en línea”. Cada click en una miniatura debe ejecutar una función que actualice la foto que renderiza la foto agrandada. Utiliza el atributo onclick para que ejecute la función changeMini.
+
+// Define la función changeMini para que:
+
+// dependa del evento de click
+
+// guarde en una variable la ruta de la imagen de la miniatura
+
+// seleccione el id de la imagen agrandada
+
+// actualice la vista con la imagen agrandada seleccionada
+
+// A modo de ejemplo:
+
+function changeMini(event) {
+  const selectedSrc = event.target.src;
+  const bigSelector = document.querySelector("#bigImg");
+  bigSelector.src = selectedSrc;
+}
+
+// ✏️ Actividad: Calcular el subtotal a pagar
+// Para este ejercicio tienes que:
+
+// Desde Visual Studio Code, abre la carpeta store y luego el archivo productDetail.js
+
+// Modifica la función printDetails para que el input numérico de la cantidad tenga asignado un evento de cambio “en línea”. Cada cambio en las unidades a comprar debe ejecutar una función que actualice el subtotal a pagar. Utiliza el atributo onchange para que ejecute la función changeSubtotal. 
+
+// Define la función changeSubtotal para que:
+// function changeSubtotal (e){
+// const products = 
+// }
+// dependa del evento de cambio
+
+// guarde en una variable la cantidad de productos a comprar
+
+// busque el producto
+
+// calcule el subtotal
+
+// seleccione la etiqueta donde se renderizar el subtotal
+
+// actualice la vista con la imagen agrandada seleccionada
+
+// Programa y verifica la vista la cantidad de veces que sea necesario para que la vista se renderice y funcione correctamente.
 // Programa y verifica la vista la cantidad de veces que sea necesario para que la vista se renderice y funcione correctamente.
