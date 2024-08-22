@@ -49,6 +49,7 @@ const images = [
   "../assets/iphone_13.jpg",
   "../assets/ipad_air.jpg",
   "../assets/ipad_pro_12_9.jpg",
+  "../assets/macbook_pro.jpg",
 ];
 
 const imagePaths = {
@@ -58,6 +59,7 @@ const imagePaths = {
   "iphone_13": images[3],
   "ipad_air": images[4],
   "ipad_12.jpg": images[5],
+  "mackbook_white": images[6],
 };
 class Product {
   #supplier;
@@ -107,7 +109,7 @@ const product1 = new Product(
   "Macbook Pro 15'4",
   750000,
   10,
-  [imagePaths["macbook"]],
+  [imagePaths["macbook"], imagePaths["mackbook_white"]],
   true,
   "Supplier Name",
   ["Space Gray"],

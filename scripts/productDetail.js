@@ -3,7 +3,7 @@ import { products } from "./products.js";
 const query = location.search;
 const params = new URLSearchParams(query);
 const id = params.get('id');
-alert(id);
+
 // ✏️Actividad: Renderizar dinámicamente la vista de detalle
 
 
@@ -15,10 +15,8 @@ function printDetails(id,products) {
    const product = products.find((each) => each.id == id);
    console.log(product);
    const detailsTemplate = `
-     <div class="columns-container">
-          <div class="class="product-images"">
+          <div class="product-images"">
             <div class="thumbnails">
-              <div class="thumbnail-container">
               ${product.images.map((img, index) => `
                 <div class="thumbnail-container">
                   <img
@@ -28,17 +26,10 @@ function printDetails(id,products) {
                   />
                 </div>
               `).join('')}
-              </div>
-              <div class="thumbnail-container">
-                <img
-                  src="../assets/mock2.jpg"
-                  alt="Descripción de la imagen 2"
-                  class="thumbnail"
-                />
-              </div>
+
             </div>
             <img
-              src="/assets/MacbookPro15'4.jpg"
+              src="${product.images[0]}"
               alt="Producto"
               id="product-image"
               class="main-image"
@@ -46,20 +37,15 @@ function printDetails(id,products) {
           </div>
 
           <div class="product-description">
-            <h2>MacBook Pro 13'4</h2>
+            <h2>${product.title}</h2>
             <form class="selector">
               <fieldset>
                 <label class="label" for="color">Color</label>
-                <select
-                  id="color"
-                  type="text"
-                  placeholder="Selecciona un color"
-                >
-                  <option value="color plata">Silver color</option>
-                  <option value="blanco estelar">Stellar white</option>
-                  <option value="gris espacial">Space gray</option>
-                  <option value="Media noche">Midnight</option>
-                </select>
+              <select type="text" placeholder="Selecciona un color">
+//          ${product.colors.map(
+            (each) => `<option value=${each}>${each}</option>`
+         ).join("")}
+      </select>
               </fieldset>
             </form>
             <div>
@@ -80,9 +66,9 @@ function printDetails(id,products) {
 
           <div class="product-details">
             <p><strong>Total:</strong></p>
-            <p class="price">$750000</p>
+            <p class="price">$${product.price}</p>
             <p>
-              Incluye impuesto PAIS y percepción AFIP. Podés recuperar ARS 50711
+              ${product.description}.  Podés recuperar ARS 50711
               haciendo la solicitud en AFIP.
             </p>
             <ul>
@@ -106,71 +92,7 @@ function printDetails(id,products) {
             </div>
           </div>
         </div>
-
-        <!-- Contenedor de seccion ofertas -->
-
-        <div class="sales-block">
-          <h2>Ofertas de la semana</h2>
-          <!-- Contenedor de productos en ofertas -->
-          <div class="offers">
-            <article class="product-card">
-              <img
-                class="product-img"
-                src="/assets/nuevos/tabletnegra.png"
-                alt="Macbook Pro"
-              />
-              <div class="product-info">
-                <span class="product-title">Macbook Pro 15'4</span>
-                <span class="product-description">Space Gray</span>
-                <div class="product-price-block">
-                  <span class="price">$750.000</span>
-                  <span class="discount">50% Off</span>
-                </div>
-                <div class="product-tax-policy">
-                  Incluye impuesto País y percepción AFIP
-                </div>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <img
-                class="product-img"
-                src="/assets/nuevos/audifono.png"
-                alt="Macbook Pro"
-              />
-              <div class="product-info">
-                <span class="product-title">Macbook Pro 15'4</span>
-                <span class="product-description">Space Gray</span>
-                <div class="product-price-block">
-                  <span class="price">$750.000</span>
-                  <span class="discount">50% Off</span>
-                </div>
-                <div class="product-tax-policy">
-                  Incluye impuesto País y percepción AFIP
-                </div>
-              </div>
-            </article>
-
-            <article class="product-card">
-              <img
-                class="product-img"
-                src="/assets/nuevos/iphat.png"
-                alt="Macbook Pro"
-              />
-              <div class="product-info">
-                <span class="product-title">Macbook Pro 15'4</span>
-                <span class="product-description">Space Gray</span>
-                <div class="product-price-block">
-                  <span class="price">$750.000</span>
-                  <span class="discount">50% Off</span>
-                </div>
-                <div class="product-tax-policy">
-                  Incluye impuesto País y percepción AFIP
-                </div>
-              </div>
-            </article>
           </div>
-        </div>
    `;
   
 

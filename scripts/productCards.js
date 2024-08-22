@@ -37,7 +37,7 @@ function createCard(product) {
                 <span class="product-title">${product.title}</span>
                 <span class="product-description">${product.colors}</span>
                 <div class="product-price-block">
-                    <span class="price">${product.price}</span>
+                    <span class="price">$${product.price}</span>
                     <span class="discount">50% Off</span>
                 </div>
                 <div class="product-tax-policy">
