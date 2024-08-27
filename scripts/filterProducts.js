@@ -1,4 +1,5 @@
 import { printCards } from "./productCards.js";
+
 import { products } from "./products.js";
 console.log("Trabajando con los eventos de teclado"); // 3. Define la función captureText para que imprima por consola “capturado”.
 console.log("✏️ Actividad: Asignar evento de teclado en línea");
@@ -60,9 +61,3 @@ console.log("✏️ Actividad: Filtrar productos");
   printCards(filterArray,"products");
 }
 // filtre el array con todos los productos con los productos cuyo nombre incluya el texto capturado
-
-// actualice la vista con una nueva impresión de las tarjetas
-
-// Abre con live server el archivo index.html y observa la correcta impresión por consola de cada tecla presionada.
-
-// Modifica las propiedades, atributos, variables y funciones que consideres necesarias para que el filtro funcione correctamente.

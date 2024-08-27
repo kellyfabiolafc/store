@@ -1,9 +1,9 @@
 import { products } from "./products.js";
 
-
 const query = location.search;
 const params = new URLSearchParams(query);
 const id = params.get("id");
+// localStorage.clear("cart");
 
 // ✏️Actividad: Renderizar dinámicamente la vista de detalle
 
@@ -87,7 +87,7 @@ function printDetails(id, products) {
             <div class="actions">
               <div class="top-button">
                <input   id="quantity-${id}"  type="number"  value="1" min="1" />
-                <button>Comprar</button>
+                <button id="shoup">Comprar</button>
               </div>
               <div class="bottom-button">
                 <button id="savedProduct">Agregar al Carrito</button>
@@ -111,14 +111,21 @@ function printDetails(id, products) {
       inputSelect.oninput = changeSubtotal;
     } else {
       console.error('Element with id "quantity" not found');
-    };
+    }
 
     const buttonSelect = document.getElementById("savedProduct");
     if (buttonSelect) {
       buttonSelect.onclick = () => saveProduct(id);
     } else {
       console.error("Element with id savedProduct not found");
-    };
+    }
+
+    const buttonShoup = document.getElementById("shoup");
+    if (buttonShoup) {
+      buttonShoup.addEventListener("click", () => {
+        window.location.href = "cart.html";
+      });
+    }
   } else {
     console.error('Element with id "details" not found');
   }
@@ -141,7 +148,7 @@ function changeMini(event) {
   bigSelector.src = selectedSrc;
 }
 
-console.log("✏️ Actividad: Calcular el subtotal a pagar")
+console.log("✏️ Actividad: Calcular el subtotal a pagar");
 
 // guarde en una variable la cantidad de productos a comprar
 
@@ -162,7 +169,8 @@ function changeSubtotal(e) {
   } else {
     console.error("Product not found");
   }
-};
+}
+
 // seleccione la etiqueta donde se renderizar el subtotal
 
 // actualice la vista con la imagen agrandada seleccionada
@@ -171,46 +179,49 @@ console.log("✏️ Actividad: Agregar un producto al carrito");
 
 // Define la función saveProduct para que:
 // dependa del id del botón
-console.log(products)
+console.log(products);
 function saveProduct(id) {
   // busque un producto con el id
   const found = products.find((each) => each.id == id);
   console.log(found);
+  const quantity = document.querySelector("#quantity-" + id).value;
+   // Calcule el subtotal
+   const subTotal = quantity * found.price;
+
   // defina un objeto con las propiedades especificadas en la compra
-console.log("aun funciono")
+  console.log("aun funciono");
   const product = {
     id: id,
     title: found.title,
     price: found.price,
-    description:found.description,
+    description: found.description,
+    totalPrice: subTotal,
     image: found.images[0],
     color: document.querySelector("#color-" + id).value,
-    quantity: document.querySelector("#quantity-" + id).value,
+    quantity: quantity,
   };
- // Obtenga el carrito actual del localStorage (o cree uno nuevo si no existe)
- let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  // Obtenga el carrito actual del localStorage (o cree uno nuevo si no existe)
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
- // Asegúrese de que cart sea un array
- if (!Array.isArray(cart)) {
-   cart = [];
- }
+  // Asegúrese de que cart sea un array
+  if (!Array.isArray(cart)) {
+    cart = [];
+  }
 
- // Elimina el producto si ya está en el carrito (para actualizarlo después)
- cart = cart.filter(item => item.id !== id);
+  // Elimina el producto si ya está en el carrito (para actualizarlo después)
+  cart = cart.filter((item) => item.id !== id);
 
- // Agregue el nuevo producto al carrito
- cart.push(product);
+  // Agregue el nuevo producto al carrito
+  cart.push(product);
 
- // Convierta a JSON el carrito actualizado
- localStorage.setItem("cart", JSON.stringify(cart));
+  // Convierta a JSON el carrito actualizado
+  localStorage.setItem("cart", JSON.stringify(cart));
 
-console.log("Producto guardado en el carrito", cart);
-  
+  console.log("Producto guardado en el carrito", cart);
 }
 
-
 // ✏️ Actividad: Agregar un producto al carrito
-// La función saveProduct guarda en la clave cart del localStorage un producto. Cuando quieres agregar otro producto, la funcionalidad desarrollada “sobre-escribe” la clave cart con el producto recientemente “añadido” (borrando los datos del producto añadido con anterioridad). 
+// La función saveProduct guarda en la clave cart del localStorage un producto. Cuando quieres agregar otro producto, la funcionalidad desarrollada “sobre-escribe” la clave cart con el producto recientemente “añadido” (borrando los datos del producto añadido con anterioridad).
 
 // Modifica la función saveProduct para que además de lo que ya hacía:
 

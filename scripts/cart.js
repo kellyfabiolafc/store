@@ -8,15 +8,16 @@ console.log("✏️Actividad: Generar tarjetas de carrito dinámicas")
 
 // Abre el archivo cart.js y define una variable cartproducts.
 
-const cartproducts = JSON.parse(localStorage.getItem('cart')) || [];
+ const cartproducts = JSON.parse(localStorage.getItem('cart')) || [];
 console.log(cartproducts)
 function createCartCard(cartproducts){
     return `  <div class="cart-product">
-          <img src="${cartproducts.image[0]}" alt="Producto 10" class="product-image">
+          <img src="${cartproducts.image}" alt="Producto 10" class="product-image">
           <div class="product-details">
             <h3>${cartproducts.title}</h3>
             <p>${cartproducts.description}</p>
-            <p>Precio: $${cartproducts.price}</p>
+            <p>Precio unitario: $${cartproducts.price}</p>
+             <p>Precio total: $${cartproducts.totalPrice}</p>
             <input type="number" value="${cartproducts.quantity}" min="1" class="quantity-input">
             <button class="remove-button">Eliminar</button>
           </div>
@@ -32,6 +33,7 @@ export function printCards(arrayOfProducts, idSelector) {
     productsSelector.innerHTML = productsTemplate;
   }
 printCards(cartproducts,"cartproducts");
+
 // Asigna a esta variable un array con los productos del localStorage.
 
 // Analiza la tarjeta del producto del carrito diseñada en la actividad anterior e identifica las propiedades de cada producto.
