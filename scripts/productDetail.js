@@ -1,5 +1,6 @@
 import { products } from "./products.js";
 
+
 const query = location.search;
 const params = new URLSearchParams(query);
 const id = params.get("id");
@@ -181,6 +182,7 @@ console.log("aun funciono")
     id: id,
     title: found.title,
     price: found.price,
+    description:found.description,
     image: found.images[0],
     color: document.querySelector("#color-" + id).value,
     quantity: document.querySelector("#quantity-" + id).value,
@@ -202,9 +204,10 @@ console.log("aun funciono")
  // Convierta a JSON el carrito actualizado
  localStorage.setItem("cart", JSON.stringify(cart));
 
- console.log("Producto guardado en el carrito", cart);
+console.log("Producto guardado en el carrito", cart);
   
 }
+
 
 // ✏️ Actividad: Agregar un producto al carrito
 // La función saveProduct guarda en la clave cart del localStorage un producto. Cuando quieres agregar otro producto, la funcionalidad desarrollada “sobre-escribe” la clave cart con el producto recientemente “añadido” (borrando los datos del producto añadido con anterioridad). 

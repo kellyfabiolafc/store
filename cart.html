@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tienda Mia - Carrito</title>
+  
+  <!-- Importando fuentes de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" />
+  
+  <!-- Importando la hoja de estilos principal -->
+  <link rel="stylesheet" href="/styles/style.css" />
+  <link rel="stylesheet" href="/styles/cart.css"/>
+</head>
+
+<body>
+  <!-- Estructura principal -->
+  <header>
+    <div class="container">
+      <div class="search">
+        <!-- Logo -->
+        <div class="logo">
+          <a href="./index.html">
+            <img src="/assets/logo.png" width="218" alt="Logo Tienda">
+          </a>
+        </div>
+        
+        <!-- Barra de búsqueda -->
+        <div class="form">
+          <form>
+            <input type="text" placeholder="Buscar" id="search" />
+          </form>
+        </div>
+        
+        <!-- Íconos de redes sociales -->
+        <div class="social">
+          <img src="/assets/facebook.png" alt="Facebook">
+          <img src="/assets/instagram.png" alt="Instagram">
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAiJJREFUSEvtlU2ITmEUx39/G5LP0qRmdjbsRtQs1PjIagobGzZWxlYiNtNIIxLJSjN2FmylpMhXNliMkVhakCxIg7KS4x6dO915vR/Pc1/m3Xjq1u0+55zfc/7nPueIHi31iMt/8IIpPye1mZ0Exv8h+TuwV9JtZywk2HnHJJ1vBG8D/PG1E9gS75eA2S6UGAa2h/+QpGfzwNXAZrYDuBffRiVdqQs2s5vALuALsFqStQN7Cd4B/cBjSX7q7GVmi4HPwFLguqT9ZZCW99jMzgLHw3BA0vtcspl5ye6G3wFJV1PAG4DXYTgmaaIG+AJwJPz6JH3sCHYDM5sGNgJvJK2rAfaDewLTkjZV/du2TDM7DFwspQLeZsBXAjfCfkLSWA64D/gALMoANjMdlPQiGRxy3wJGaoJ/AKcleVectzpOJzPbB1wLrzPAnYxDeG2/NrNPAS8B/G9c1ngXMw7wh2lHcMg9BRwEfgJHgeeJ0FlJM7UyDvAq4CUwkAgszR5JKvt/Xo1LazPbXLS+czFIkpQqhkP34MoB1gLrEzPvTuoqxMxGAZf+sqRvDXuDRZfaDcxI8qnUcqVK9jtAMW38Op2IaA8k+fgs99Z4awWWx6c97eC54PuVoW6S5jqamW0t6v+wkuJ4sX+qVcq5YJd5MoJNSTrUIPUTYAjwEgy3ukrukwUOuX3arJD0tFk2kfkrSZ/+Wo0T/+Qks+yMk6ImGPUM/AtjH6wfmOTzdwAAAABJRU5ErkJggg==" alt="Carrito">
+        </div>
+      </div>
+      
+      <!-- Barra de navegación -->
+      <div id="nav" class="nav">
+        <ul id="nav-list">
+         
+        </ul>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Sección Hero (vacía) -->
+  <section id="hero">
+    <div class="container">
+      <!-- Contenido eliminado según instrucciones -->
+    </div>
+  </section>
+  
+  <!-- Contenido principal -->
+  <main>
+    <div class="container">
+      <!-- Artículo para los productos en el carrito -->
+      <article id="cartproducts">
+        <!-- Tarjetas de productos del carrito -->
+        <!-- Ejemplo de tarjeta de producto -->
+        <div  id="cartproducts" class="cart-product">
+          <!-- <img src="/assets/image10.jpg" alt="Producto 10" class="product-image">
+          <div class="product-details">
+            <h3>Producto 10</h3>
+            <p>Descripción breve del producto 10.</p>
+            <p>Precio: $100.00</p>
+            <input type="number" value="1" min="1" class="quantity-input">
+            <button class="remove-button">Eliminar</button>
+          </div> -->
+        </div>
+        <!-- Repite las tarjetas de productos según sea necesario -->
+      </article>
+      
+      <!-- Artículo para el total a pagar -->
+      <article id="total">
+        <img src="/assets/image5.jpg" alt="Resumen de Total" class="total-image">
+        <div class="total-details">
+          <h3>Total a Pagar</h3>
+          <p>Subtotal: $200.00</p>
+          <p>Impuestos: $20.00</p>
+          <p>Descuentos: -$10.00</p>
+          <hr>
+          <p><strong>Total: $210.00</strong></p>
+          <button class="checkout-button">Finalizar Compra</button>
+        </div>
+      </article>
+    </div>
+  </main>
+  
+  <!-- Pie de página -->
+  <footer>
+    <div class="container">
+      <div class="columns-container" id="footer">
+        <!-- Contenido adicional del footer -->
+      </div>
+      <div class="copyright">Curso de HTML + CSS 2023</div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script  src="./scripts/layout.js"></script>
+  <script type="module" src="./scripts/cart.js"></script>
+  <!-- Puedes incluir otros scripts si son necesarios -->
+</body>
+
+</html>
