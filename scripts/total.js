@@ -19,17 +19,20 @@ function createTotalTemplate(arrayOfProducts) {
   
     // Inicializa la variable total
     let total = 0;
-  
+    // Verifica si hay productos en el carrito para habilitar o deshabilitar el botón
+ 
     // Calcula el total sumando el precio por la cantidad de cada producto
     arrayOfProducts.forEach((product) => {
       total += product.price * product.quantity;
     });
   
+    const isCartEmpty = arrayOfProducts.length === 0;
+    const buttonState = isCartEmpty ? "disabled" : "";
     // Retorna el HTML con el total calculado
     return `
       <div class="total-details">
         <p><strong>Total: $${total.toFixed(2)}</strong></p>
-        <button class="checkout-button">Finalizar Compra</button>
+        <button id="buttonFinal" class="checkout-button" ${buttonState}>Finalizar Compra</button>
       </div>
     `;
   }

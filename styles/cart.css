@@ -1,23 +1,24 @@
 /* Estilos para el carrito de compras */
-#cartproducts {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
- 
-  }
+
 
   article {
     margin: 20px 0px;
   }
  
-  .cartproduct {
+  .cart-product {
     display: flex;
+    flex-direction: wrap;
     gap: 20px;
     border: 1px solid #ccc;
     padding: 10px;
     border-radius: 5px;
   }
   
+  .container-cart-products{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .product-image {
     width: 150px;
     height: auto;

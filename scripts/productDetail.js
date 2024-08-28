@@ -69,7 +69,7 @@ function printDetails(id, products) {
 
           <div class="product-details">
             <p><strong>Total:</strong></p>
-            <p id="totalPrice"class="price">$${product.price}</p>
+            <p id="totalPrice"class="price">$${product.price.toFixed(2)}</p>
             <p>
               ${product.description}.  Podés recuperar ARS 50711
               haciendo la solicitud en AFIP.
@@ -162,7 +162,7 @@ function changeSubtotal(e) {
     const subTotal = cantidadDeProductos * product.price;
     const totalSelect = document.querySelector("#totalPrice");
     if (totalSelect) {
-      totalSelect.innerHTML = `$${subTotal}`;
+      totalSelect.innerHTML = `$${subTotal.toFixed(2)}`;
     } else {
       console.error('Element with id "totalPrice" not found');
     }
@@ -193,9 +193,9 @@ function saveProduct(id) {
   const product = {
     id: id,
     title: found.title,
-    price: found.price,
+    price: found.price.toFixed(2),
     description: found.description,
-    totalPrice: subTotal,
+    totalPrice: subTotal.toFixed(2),
     image: found.images[0],
     color: document.querySelector("#color-" + id).value,
     quantity: quantity,

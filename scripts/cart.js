@@ -15,6 +15,7 @@ function createCartCard(cartproducts){
           <img src="${cartproducts.image}" alt="Producto 10" class="product-image">
           <div class="product-details">
             <h3>${cartproducts.title}</h3>
+            <p>${cartproducts.color}</p>
             <p>${cartproducts.description}</p>
             <p>Precio unitario: $${cartproducts.price}</p>
              <p>Precio total: $${cartproducts.totalPrice}</p>
@@ -45,7 +46,7 @@ function changeQuantity(e) {
   const product = cartproducts.find(product => product.title === productTitle);
   if (product) {
       product.quantity = newQuantity;
-      product.totalPrice = product.price * newQuantity;
+      product.totalPrice = (product.price * newQuantity).toFixed(2); ;
   }
 
   // Actualiza el carrito en localStorage
