@@ -18,13 +18,13 @@ function createCartCard(cartproducts){
             <p>${cartproducts.description}</p>
             <p>Precio unitario: $${cartproducts.price}</p>
              <p>Precio total: $${cartproducts.totalPrice}</p>
-            <input type="number" value="${cartproducts.quantity}" min="1" class="quantity-input">
+            <input type="number" value="${cartproducts.quantity}" min="1"  onchange="changeQuantity(event)" class="quantity-input">
             <button class="remove-button">Eliminar</button>
           </div>
         </div>`
 }
-
-export function printCards(arrayOfProducts, idSelector) {
+ 
+ function printCards(arrayOfProducts, idSelector) {
     let productsTemplate = "";
     for (const element of arrayOfProducts) {
       productsTemplate += createCartCard(element);
@@ -33,6 +33,31 @@ export function printCards(arrayOfProducts, idSelector) {
     productsSelector.innerHTML = productsTemplate;
   }
 printCards(cartproducts,"cartproducts");
+ 
+function changeQuantity(e) {
+  const inputElement = e.target;
+  const newQuantity = parseInt(inputElement.value, 10);
+  const productTitle = inputElement.closest('.cart-product').querySelector('h3').innerText;
+
+  const cartproducts = JSON.parse(localStorage.getItem('cart')) || [];
+  
+  // Encuentra el producto en el carrito y actualiza su cantidad y precio total
+  const product = cartproducts.find(product => product.title === productTitle);
+  if (product) {
+      product.quantity = newQuantity;
+      product.totalPrice = product.price * newQuantity;
+  }
+
+  // Actualiza el carrito en localStorage
+  localStorage.setItem('cart', JSON.stringify(cartproducts));
+
+  // Re-renderiza las tarjetas del carrito
+  printCards(cartproducts, "cartproducts");
+
+  printTotal(cartproducts,"total")
+}
+
+// Asegúrate de que esta función esté definida en el archivo correcto y se cargue antes del uso
 
 // Asigna a esta variable un array con los productos del localStorage.
 

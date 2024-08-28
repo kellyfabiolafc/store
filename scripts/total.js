@@ -1,5 +1,5 @@
 console.log("✏️Actividad: Calcular total a pagar");
-const cartproducts = JSON.parse(localStorage.getItem('cart')) || [];
+
 
 // Para este ejercicio tienes que seguir los siguientes pasos:
 
